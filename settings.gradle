@@ -1,0 +1,1 @@
+include ':sw803f14-service', ':sw803f14-testapp'

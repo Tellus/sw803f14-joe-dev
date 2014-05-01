@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/sw803f14-code.iml" filepath="$PROJECT_DIR$/sw803f14-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sw803f14-service/sw803f14-service.iml" filepath="$PROJECT_DIR$/sw803f14-service/sw803f14-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sw803f14-testapp/sw803f14-testapp.iml" filepath="$PROJECT_DIR$/sw803f14-testapp/sw803f14-testapp.iml" />
+    </modules>
+  </component>
+</project>
+

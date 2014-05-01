@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="logEditText" type="id">logEditText</item>
+    <item name="globalMessageEditText" type="id">globalMessageEditText</item>
+    <item name="getGlobalMessageButton" type="id">getGlobalMessageButton</item>
+    <item name="setGlobalMessageButton" type="id">setGlobalMessageButton</item>
+</resources>
