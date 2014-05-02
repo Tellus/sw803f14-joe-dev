@@ -4,4 +4,5 @@
     <item name="globalMessageEditText" type="id">globalMessageEditText</item>
     <item name="getGlobalMessageButton" type="id">getGlobalMessageButton</item>
     <item name="setGlobalMessageButton" type="id">setGlobalMessageButton</item>
+    <item name="demoTransferButton" type="id">demoTransferButton</item>
 </resources>

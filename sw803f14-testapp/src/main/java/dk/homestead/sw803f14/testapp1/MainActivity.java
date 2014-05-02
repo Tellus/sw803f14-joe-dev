@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import dk.homestead.sw803f14.service.ISunWukongService;
+import dk.homestead.sw803f14.service.ISunWukongTransferListener;
 import dk.homestead.sw803f14.service.SunWukongService;
 
 
@@ -26,6 +27,7 @@ public class MainActivity extends Activity {
 
     private Button _getGlobalMessageBtn;
     private Button _setGlobalMessageBtn;
+    private Button demoTransferButton;
     private EditText _globalMsgEditText;
     private EditText _appLog;
 
@@ -37,11 +39,35 @@ public class MainActivity extends Activity {
             _setGlobalMessageBtn.setEnabled(true);
             _getGlobalMessageBtn.setEnabled(true);
             _globalMsgEditText.setEnabled(true);
+
             try {
                 _globalMsgEditText.setText(swService.getGlobalMessage());
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
+
+            demoTransferButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d("MainActivity:demoTransferButton", "Starting download.");
+                    try {
+                        swService.retrieveBlock(0, new ISunWukongTransferListener.Stub() {
+                            @Override
+                            public void onComplete(String path) throws RemoteException {
+                                // _appLog.append("Download succeeded. Path: " + path + "\n");
+                                Log.d("MainActivity:demoTransferButton", "Transfer complete! Path: " + path);
+                            }
+
+                            @Override
+                            public void onProgress(int current, int max) throws RemoteException {
+                                _appLog.append(".");
+                            }
+                        });
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
 
         @Override
@@ -60,6 +86,7 @@ public class MainActivity extends Activity {
 
         _getGlobalMessageBtn = (Button)findViewById(R.id.getGlobalMessageButton);
         _setGlobalMessageBtn = (Button)findViewById(R.id.setGlobalMessageButton);
+        demoTransferButton = (Button)findViewById(R.id.demoTransferButton);
         _globalMsgEditText = (EditText)findViewById(R.id.globalMessageEditText);
         _appLog = (EditText)findViewById(R.id.logEditText);
 
@@ -108,9 +135,6 @@ public class MainActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 }

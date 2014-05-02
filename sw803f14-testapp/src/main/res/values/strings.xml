@@ -6,5 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="setGlobalMessageButtonText">Set Message</string>
     <string name="getGlobalMessageButtonText">Get Message</string>
+    <string name="demoTransferButton">demoTransferButton</string>
+    <string name="demoTransferButtonText">Test transfer</string>
 
 </resources>
